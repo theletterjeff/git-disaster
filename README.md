@@ -1,5 +1,5 @@
 # Git Disaster
-We've all messed up our git history from time to time. It's simply an occupational hazard of software development.
+We've all messed up our git history from time to time. It's an occupational hazard of software development.
 
 Now, we have a handy tool for logging how long we go without a major git screw-up.
 

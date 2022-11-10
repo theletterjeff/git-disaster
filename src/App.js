@@ -32,7 +32,7 @@ class TimeDigit extends React.Component {
     let digitStyle = {};
     let timeUnitStyle = {};
     return (
-      <Column>
+      <Column sm className="d-flex d-sm-block">
         <div style={digitStyle}>{this.props.digitVal}</div>
         <div style={timeUnitStyle}>{this.props.timeUnit}</div>
       </Column>
@@ -124,8 +124,10 @@ class App extends React.Component {
   render() {
     let timeInt = this.state.timeSinceLastDisaster;
       return (
-      <Container className="d-flex">
-        <Timer timeInt={timeInt} />
+      <Container>
+        <Row>
+          <Timer timeInt={timeInt} />
+        </Row>
         <Row>
           <DisasterButton onClick={() => this.handleDisasterButtonClick()} />
         </Row>

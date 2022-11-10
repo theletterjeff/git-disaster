@@ -44,9 +44,8 @@ class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      timeDigitVals = Array(5).fill(null);
+      timeDigitVals: Array(5).fill(null),
     };
-    this.incrementTime
   }
   getTimeDigitVals(timeInt, timeUnitVals) {
     let subtractVal = 0;
@@ -76,11 +75,7 @@ class Timer extends React.Component {
     const timeDigits = this.renderTimeDigits(
       timeDigitVals, ['Weeks', 'Days', 'Hours', 'Minutes', 'Seconds']
     );
-    return (
-      <Row>
-        {timeDigits}
-      </Row>
-    );
+    return timeDigits;
   }
 }
 
@@ -93,8 +88,8 @@ class App extends React.Component {
     this.incrementTime = this.incrementTime.bind(this);
   }
   componentDidMount() {
-    const intervalID = setInterval(
-      this.incrementTime(this.state.timeSinceLastDisaster, 1000), 1000);
+    const intervalID = setInterval(() => {
+      this.incrementTime(this.state.timeSinceLastDisaster, 1000)}, 1000);
     this.setState({
       intervalID: intervalID,
     });
@@ -123,15 +118,17 @@ class App extends React.Component {
     })
     this.setTimestampInLocalStorage(now);
     clearInterval(this.state.intervalID);
-    this.incrementTime(0, 1000);
+    this.incrementTime(-1, 1000);
     console.log('hello');
   }
   render() {
     let timeInt = this.state.timeSinceLastDisaster;
       return (
-      <Container>
+      <Container className="d-flex">
         <Timer timeInt={timeInt} />
-        <DisasterButton onClick={() => this.handleDisasterButtonClick()} />
+        <Row>
+          <DisasterButton onClick={() => this.handleDisasterButtonClick()} />
+        </Row>
       </Container>
     );
   }

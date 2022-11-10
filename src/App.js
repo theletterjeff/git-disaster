@@ -1,5 +1,6 @@
 import './App.css';
 
+import Button from 'react-bootstrap/Button';
 import Column from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -14,26 +15,35 @@ const WEEK = DAY * 7;
 class DisasterButton extends React.Component {
   render() {
     let buttonStyle = {
-      backgroundColor: '#EEEEEE',
+      backgroundColor: '#CC0000',
+      borderColor: '#AA5555',
+      color: '#FFFFFF',
+      fontSize: '2rem',
     }
     return (
-      <button className="disaster-button"
+      <Button className="disaster-button"
               onClick={this.props.onClick}
-              style={buttonStyle}
-      >
+              style={buttonStyle}>
         Whoops!
-      </button>
+      </Button>
     );
   }
 }
 
 class TimeDigit extends React.Component {
   render() {
-    let digitStyle = {};
-    let timeUnitStyle = {};
+    let digitStyle = {
+      fontSize: '3rem',
+      width: '3rem',
+      textAlign: 'center',
+      verticalAlign: 'middle',
+    };
+    let timeUnitStyle = {
+      margin: 'auto',
+    };
     return (
-      <Column sm className="d-flex d-sm-block">
-        <div style={digitStyle}>{this.props.digitVal}</div>
+      <Column sm className="d-flex d-sm-block my-1">
+        <div className="mx-1" style={digitStyle}>{this.props.digitVal}</div>
         <div style={timeUnitStyle}>{this.props.timeUnit}</div>
       </Column>
     );
@@ -123,12 +133,15 @@ class App extends React.Component {
   }
   render() {
     let timeInt = this.state.timeSinceLastDisaster;
-      return (
+    return (
       <Container>
+        <Row>
+          <h1>Time Since Last Git Disaster:</h1>
+        </Row>
         <Row>
           <Timer timeInt={timeInt} />
         </Row>
-        <Row>
+        <Row className="mt-2 mt-sm-5 justify-content-center align-items-center">
           <DisasterButton onClick={() => this.handleDisasterButtonClick()} />
         </Row>
       </Container>

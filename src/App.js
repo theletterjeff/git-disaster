@@ -1,5 +1,3 @@
-import './App.css';
-
 import Button from 'react-bootstrap/Button';
 import Column from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';

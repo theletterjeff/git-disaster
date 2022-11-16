@@ -32,16 +32,21 @@ class TimeDigit extends React.Component {
   render() {
     let digitStyle = {
       fontSize: '3rem',
-      width: '3rem',
+      width: '4.5rem',
       textAlign: 'center',
       verticalAlign: 'middle',
+      border: 'solid',
+      backgroundColor: '#DDDDDD',
+      alignItems: 'center',
+      margin: 'auto',
     };
     let timeUnitStyle = {
       margin: 'auto',
+      textAlign: 'center',
     };
     return (
       <Column sm className="d-flex d-sm-block my-1">
-        <div className="mx-1" style={digitStyle}>{this.props.digitVal}</div>
+        <div style={digitStyle}>{this.props.digitVal}</div>
         <div style={timeUnitStyle}>{this.props.timeUnit}</div>
       </Column>
     );
